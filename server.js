@@ -58,7 +58,7 @@ app.post('/contribute', (req, res) => {
         .catch(err => res.status(400).json(err, 'Error. Please, check your coordinates. This location is already on the animap'))
 })
 
-app.listen(proces.env.PORT || 3000, () => {
+app.listen(process.env.PORT || 3000, () => {
     console.log('Im listening');
 });
 
