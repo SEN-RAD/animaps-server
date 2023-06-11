@@ -1,0 +1,71 @@
+
+
+check your latest version of node (or install it)
+npm init -y (to create a package.json file)
+create a server.js file
+npm install nodemon --save-dev
+In package.json, in scripts, change or add to 
+ "scripts": {
+    "start": "nodemon server.js"
+  }
+npm install express
+npm install body-parser
+
+THATS FOR SET UP 
+
+Later, when integrating the server and the front end, I may have a warning from the browser about the cors policy. The way around in the course was to download yet another package. 
+
+npm install cors (in the server's terminal)
+
+FOR DATABASE
+Install PostgreSQL / set up, etc in postgres notes
+
+npm install knex (in the server's terminal. which we'll use to connect the db to the server)
+npm install pg (this is part of the instructions in knex docs, depends on what db you are using) - THEN follow docs https://knexjs.org/guide/#configuration-options
+
+
+
+*****************************************
+
+The first endpoint is POST, which will check the coordinates the person adds. Si estas coordinates ya estan en la DB, respondere con sorry, error. If they're not, I push the new location, along with the name of the animal, the description and the image, thus creating/adding it in the database. 
+
+The second endpoint should fetch on Mount * from the db to be displayed as markers on the map. I don't know how to do this without creating hundreds of Markers in the Map component. My idea, ideally, I would just have 1 Marker, which would be able to reproduce itself according to the number of markers I have in my db. 
+
+Then I would need an onClick event so when the user clicks on the marker, he gets the infoBox with the description and the image, which will be stored in the database. Not sure how to link this or if by clicking I send the coordinates, but in any case, this is a GET endpoint. 
+
+Then I should have a PUT endpoint in case I want to edit information. 
+
+
+**************************************
+
+
+
+
+**************************************
+
+Most of the functionality is running well. I just need the last endpoint, PUT, to be able to edit. 
+
+Then I need a searchbar, so people can search by animal name (easy) or name of city (difficult) ** DONE, by name of city, using API.
+Now I need to style the searchbar. 
+ 
+I need styling and animation of InfoBox, so it looks like it's coming up fresh everytime another marker is clicked. 
+
+Perhaps an icon to click on map, to find the users location. 
+
+Styling, about section/contact link, website icon. 
+If ambitious, registration + skgn in pages (too much extra work)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

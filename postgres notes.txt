@@ -1,0 +1,25 @@
+createdb -U postgres dbname (to create the db) (animals in this case, that the name)
+
+psql -U postgres dbname (to access/check the database)
+
+*****
+
+TABLES
+
+CREATE TABLE tablename (
+	id serial PRIMARY KEY,
+	coordinates VARCHAR (50) UNIQUE NOT NULL, 
+	animal VARCHAR ( 50 ) NOT NULL, 
+	description VARCHAR ( 200 ) NOT NULL, 
+	image BYTEA,
+	created_on TIMESTAMP NOT NULL);
+
+VARCHAR means datatype, string, puede ser letras, numeros, simbolos. 
+
+DROP TABLE tablename; -----> deletes the table
+
+
+With 
+ 	\dt  
+puedo acceder a las tablas. Display tables. 
+	
