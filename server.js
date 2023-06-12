@@ -6,12 +6,12 @@ const knex = require('knex');
 const db = knex({
     client: 'pg',
     connection: {
-        host: 'containers-us-west-119.railway.app',
-        user: 'postgres',
-        password: 'BtNvrkY6wvHaGg0VOzwn',
-        database: 'railway',
-        port: '7868',
-        url: 'postgresql://postgres:BtNvrkY6wvHaGg0VOzwn@containers-us-west-119.railway.app:7868/railway'
+        PGHOST: 'containers-us-west-119.railway.app',
+        PGUSER: 'postgres',
+        PGPASSWORD: 'BtNvrkY6wvHaGg0VOzwn',
+        PGDATABASE: 'railway',
+        PGPORT: '7868',
+        DATABASE_URL: 'postgresql://postgres:BtNvrkY6wvHaGg0VOzwn@containers-us-west-119.railway.app:7868/railway'
     }
 });
 
