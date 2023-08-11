@@ -48,8 +48,9 @@ app.get('/markers/:id', (req, res) => {
         });
 });
 
-app.post('/contribute', (req, res) => {
+app.post('/contribute', upload.single('uploadedImage'), (req, res) => {
     const { coordinates, animal, name, description } = req.body;
+    const uploadedImage = req.file.buffer; 
     db('markers')
         .returning('*')
         .insert({
@@ -57,10 +58,11 @@ app.post('/contribute', (req, res) => {
             animal: animal,
             name: name,
             description: description,
+            image : uploadedImage,
             created_on: new Date
         })
         .then(marker => {
-            res.json('Success! The location has been added to the animap.');
+            res.status(200).json('Success! The location has been added to the animap.');
         })
         .catch(err => res.status(400).json(err, 'Error. Please, check your coordinates. This location is already on the animap'))
 })
