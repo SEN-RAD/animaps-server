@@ -11,7 +11,7 @@ const db = knex({
         PGPASSWORD: 'OyuOnWtpzupM6fWLf8SZeEcgZXiaBHGv',
         PGDATABASE: 'animals_f8ff',
         PGPORT: '5432',
-        DATABASE_URL: 'postgres://animals_f8ff_user:OyuOnWtpzupM6fWLf8SZeEcgZXiaBHGv@dpg-cjavgs1itvpc73cm9shg-a.oregon-postgres.render.com/animals_f8ff'
+        DATABASE_URL: 'postgres://animals_f8ff_user:OyuOnWtpzupM6fWLf8SZeEcgZXiaBHGv@dpg-cjavgs1itvpc73cm9shg-a/animals_f8ff'
     }
 });
 
