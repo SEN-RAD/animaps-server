@@ -6,12 +6,12 @@ const knex = require('knex');
 const db = knex({
     client: 'pg',
     connection: {
-        PGHOST: 'containers-us-west-119.railway.app',
-        PGUSER: 'postgres',
-        PGPASSWORD: 'BtNvrkY6wvHaGg0VOzwn',
-        PGDATABASE: 'railway',
-        PGPORT: '7868',
-        DATABASE_URL: 'postgresql://postgres:BtNvrkY6wvHaGg0VOzwn@containers-us-west-119.railway.app:7868/railway'
+        PGHOST: 'dpg-cjavgs1itvpc73cm9shg-a',
+        PGUSER: 'animals_f8ff_user',
+        PGPASSWORD: 'OyuOnWtpzupM6fWLf8SZeEcgZXiaBHGv',
+        PGDATABASE: 'animals_f8ff',
+        PGPORT: '5432',
+        DATABASE_URL: 'postgres://animals_f8ff_user:OyuOnWtpzupM6fWLf8SZeEcgZXiaBHGv@dpg-cjavgs1itvpc73cm9shg-a.oregon-postgres.render.com/animals_f8ff'
     }
 });
 
