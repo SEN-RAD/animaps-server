@@ -6,12 +6,11 @@ const knex = require('knex');
 const db = knex({
     client: 'pg',
     connection: {
-        PGHOST: 'dpg-cjavgs1itvpc73cm9shg-a',
-        PGUSER: 'animals_f8ff_user',
-        PGPASSWORD: 'OyuOnWtpzupM6fWLf8SZeEcgZXiaBHGv',
-        PGDATABASE: 'animals_f8ff',
-        PGPORT: '5432',
-        DATABASE_URL: 'postgres://animals_f8ff_user:OyuOnWtpzupM6fWLf8SZeEcgZXiaBHGv@dpg-cjavgs1itvpc73cm9shg-a/animals_f8ff'
+        host: process.env.PGHOST,
+        user: process.env.PGUSER,
+        password: process.env.PGPASSWORD,
+        database: process.env.PGDATABASE,
+        port: process.env.PGPORT,
     }
 });
 
