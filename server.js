@@ -47,9 +47,8 @@ app.get('/markers/:id', (req, res) => {
         });
 });
 
-app.post('/contribute', upload.single('uploadedImage'), (req, res) => {
+app.post('/contribute', (req, res) => {
     const { coordinates, animal, name, description } = req.body;
-    const uploadedImage = req.file.buffer; 
     db('markers')
         .returning('*')
         .insert({
@@ -57,7 +56,6 @@ app.post('/contribute', upload.single('uploadedImage'), (req, res) => {
             animal: animal,
             name: name,
             description: description,
-            image : uploadedImage,
             created_on: new Date
         })
         .then(marker => {
