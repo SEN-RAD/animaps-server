@@ -59,10 +59,16 @@ app.post('/contribute', (req, res) => {
             created_on: new Date
         })
         .then(marker => {
-            res.status(200).json('Success! The location has been added to the animap.');
+            res.status(200).json('Success! Your spot has been added to the Animap.');
         })
-        .catch(err => res.status(400).json(err, 'Error. Please, check your coordinates. This location is already on the animap'))
-})
+        .catch(err => {
+            if (err.constraint === 'markers_coordinates_key') {
+                res.status(400).json('This location is already on the Animap.');
+            } else {
+                res.status(500).json('An error occurred while processing your request.');
+            }
+        });
+});
 
 app.listen(process.env.PORT || 3000, () => {
     console.log('Im listening');
