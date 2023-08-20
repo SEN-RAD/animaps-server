@@ -37,7 +37,7 @@ app.get('/', (req, res) => {
 
 app.get('/markers/:id', (req, res) => {
     const id = req.params.id;
-    db.select('description').from('markers').where('id', '=', id)
+    db.select('*').from('markers').where('id', '=', id)
         .then(data => {
             res.send(data);
         })
@@ -63,7 +63,7 @@ app.post('/contribute', (req, res) => {
         })
         .catch(err => {
             if (err.constraint === 'markers_coordinates_key') {
-                res.status(400).json('This location is already on the Animap.');
+                res.status(400).json('Hmm... It seems like this location is already on the Animap.');
             } else {
                 res.status(500).json('An error occurred while processing your request.');
             }
