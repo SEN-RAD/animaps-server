@@ -47,6 +47,22 @@ app.get('/markers/:id', (req, res) => {
         });
 });
 
+app.get('/filtered-markers', (req, res) => {
+    const searchAnimal = req.query.searchAnimal.toLowerCase();
+    db.select('*')
+        .from('markers')
+        .then(data => {
+            const filteredMarkers = data.filter(item =>
+                item.animal.toLowerCase().includes(searchAnimal)
+            );
+            res.json(filteredMarkers);
+        })
+        .catch(err => {
+            console.error(err);
+            res.status(500).json({ error: 'Error retrieving and filtering data from the database' });
+        });
+});
+
 app.post('/contribute', (req, res) => {
     const { coordinates, animal, name, description } = req.body;
     db('markers')
@@ -74,13 +90,3 @@ app.listen(process.env.PORT || 3000, () => {
     console.log('Im listening');
 });
 
-/*
-
-/ --> res = workin 
-/contribute --> POST = marker coordinates + animal + infobox + pic / IT WORKS
-/ --> GET = all markers + animal (to display on map) / IT WORKS
-/:markerId --> GET = Description for InfoBox / IT WORKS
-/:markerId/edit --> PUT = edit of InfoBox 
-
-
-*/
