@@ -81,7 +81,7 @@ app.post('/contribute', (req, res) => {
             if (err.constraint === 'markers_coordinates_key') {
                 res.status(400).json('Hmm... It seems like this location is already on the Animap.');
             } else {
-                res.status(500).json('An error occurred while processing your request.');
+                res.status(500).json(err, 'An error occurred while processing your request. Please, try again.');
             }
         });
 });
